@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@layer base {
+  html {
+    font-family: 'Inter', system-ui, sans-serif;
+  }
+  
+  body {
+    background-color: #111827; /* black */
+    color: #ffffff; /* white */
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-secondary hover:bg-secondary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-primary hover:bg-primary-dark text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-background-light rounded-xl shadow-lg border border-neutral-dark p-6;
+  }
+  
+  .metric-card {
+    @apply rounded-xl shadow-lg p-6 border;
+    background: linear-gradient(120deg, rgba(255,255,255,0.22) 40%, rgba(59,130,246,0.10) 100%);
+    backdrop-filter: blur(18px);
+    box-shadow: 0 6px 32px 0 rgba(31, 38, 135, 0.10);
+    border: 1.5px solid rgba(255,255,255,0.18);
+  }
+  
+  .table-header {
+    @apply bg-primary text-white font-semibold;
+  }
+  
+  .table-row {
+    @apply hover:bg-primary-light transition-colors duration-150;
+  }
+} 

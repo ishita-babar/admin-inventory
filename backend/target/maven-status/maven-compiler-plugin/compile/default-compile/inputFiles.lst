@@ -1,0 +1,13 @@
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/InventoryDashboardApplication.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/controller/ForecastController.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/controller/ProductController.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/dto/CategoryDTO.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/dto/InventoryUpdateDTO.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/dto/ProductDTO.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/model/Category.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/model/Product.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/repository/CategoryRepository.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/repository/ProductRepository.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/service/ForecastService.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/service/ProductDataLoader.java
+/Users/ishita/admin-inventory/backend/src/main/java/com/inventory/service/ProductService.java
