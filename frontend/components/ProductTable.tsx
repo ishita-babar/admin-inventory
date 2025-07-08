@@ -86,7 +86,7 @@ export default function ProductTable({ products, onInventoryUpdate, showCategory
                         style={{ minWidth: 90, justifyContent: 'center' }}>
                         <span className={`w-2 h-2 rounded-full mr-2 ${dot}`}></span>
                         {label}
-                      </span>
+                  </span>
                     );
                   })()}
                 </td>

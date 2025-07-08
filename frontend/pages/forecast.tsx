@@ -91,7 +91,7 @@ export default function Forecast() {
         {forecasts.length > 0 && (
           <div className="space-y-4">
             <div className="flex items-center justify-between">
-              <h2 className="text-2xl font-semibold text-primary">Forecast Results</h2>
+              <h2 className="text-2xl font-semibold text-default">Forecast Results</h2>
               <button
                 onClick={generateForecast}
                 disabled={loading}

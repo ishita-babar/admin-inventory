@@ -26,11 +26,11 @@ export default function Dashboard() {
 
   const fetchAndCacheData = useCallback(async () => {
     setLoading(true);
-    try {
-      const [productsData, statsData] = await Promise.all([
-        productApi.getAll(),
-        productApi.getStats()
-      ]);
+      try {
+        const [productsData, statsData] = await Promise.all([
+          productApi.getAll(),
+          productApi.getStats()
+        ]);
       // Only update if changed
       const cachedProducts = localStorage.getItem('dashboard_products');
       const cachedStats = localStorage.getItem('dashboard_stats');
@@ -45,11 +45,11 @@ export default function Dashboard() {
         localStorage.setItem('dashboard_products', JSON.stringify(productsData));
         localStorage.setItem('dashboard_stats', JSON.stringify(statsData));
       }
-    } catch (error) {
-      console.error('Failed to fetch dashboard data:', error);
-    } finally {
-      setLoading(false);
-    }
+      } catch (error) {
+        console.error('Failed to fetch dashboard data:', error);
+      } finally {
+        setLoading(false);
+      }
   }, []);
 
   useEffect(() => {
@@ -100,9 +100,9 @@ export default function Dashboard() {
       <div className="space-y-6">
         {/* Page Header */}
         <div className="flex items-center gap-4">
-          <div>
-            <h1 className="text-3xl font-bold text-neutral">Dashboard</h1>
-            <p className="text-neutral/70 mt-2">Monitor your inventory and sales performance</p>
+        <div>
+          <h1 className="text-3xl font-bold text-neutral">Dashboard</h1>
+          <p className="text-neutral/70 mt-2">Monitor your inventory and sales performance</p>
           </div>
           <button
             className="ml-auto px-4 py-2 bg-secondary text-white rounded-lg hover:bg-secondary-dark"

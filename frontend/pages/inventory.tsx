@@ -169,10 +169,10 @@ export default function Inventory() {
             <div className="text-primary">Loading inventory...</div>
           </div>
         ) : (
-          <ProductTable 
-            products={filteredProducts} 
-            onInventoryUpdate={handleInventoryUpdate}
-          />
+        <ProductTable 
+          products={filteredProducts} 
+          onInventoryUpdate={handleInventoryUpdate}
+        />
         )}
 
         {/* Pagination Controls */}

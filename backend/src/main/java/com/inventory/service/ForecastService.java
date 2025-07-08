@@ -1,14 +1,15 @@
 package com.inventory.service;
 
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
 public class ForecastService {
@@ -22,48 +23,21 @@ public class ForecastService {
     private final ObjectMapper objectMapper = new ObjectMapper();
     
     /**
-     * Generate forecast using ML script
+     * Generate forecast by reading from ml/forecast_output.json
      */
     public List<Map<String, Object>> generateForecast() {
         try {
-            // Build the command to execute the Python script
-            ProcessBuilder processBuilder = new ProcessBuilder(
-                pythonCommand, scriptPath
-            );
-            
-            // Set working directory to the script location
-            processBuilder.directory(new java.io.File(scriptPath).getParentFile());
-            
-            // Redirect error stream to output stream
-            processBuilder.redirectErrorStream(true);
-            
-            // Start the process
-            Process process = processBuilder.start();
-            
-            // Read the output
-            BufferedReader reader = new BufferedReader(
-                new InputStreamReader(process.getInputStream())
-            );
-            
-            StringBuilder output = new StringBuilder();
-            String line;
-            while ((line = reader.readLine()) != null) {
-                output.append(line).append("\n");
-            }
-            
-            // Wait for the process to complete
-            int exitCode = process.waitFor();
-            
-            if (exitCode == 0) {
-                // Parse the JSON output
-                String jsonOutput = output.toString().trim();
-                return objectMapper.readValue(jsonOutput, new TypeReference<List<Map<String, Object>>>() {});
-            } else {
-                throw new RuntimeException("ML script failed with exit code: " + exitCode);
-            }
-            
-        } catch (Exception e) {
-            throw new RuntimeException("Failed to generate forecast: " + e.getMessage(), e);
+            System.out.println("Current working directory: " + new java.io.File(".").getAbsolutePath());
+            System.out.println("Looking for: " + new java.io.File("ml/forecast_output.json").getAbsolutePath());
+            String jsonOutput = new String(Files.readAllBytes(Paths.get("/Users/ishita/admin-inventory/ml/forecast_output.json")));
+            System.out.println("DEBUG: Raw JSON output: " + jsonOutput);
+            return objectMapper.readValue(jsonOutput, new TypeReference<List<Map<String, Object>>>() {});
+        } catch (com.fasterxml.jackson.core.JsonProcessingException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to parse forecast JSON: " + e.getMessage(), e);
+        } catch (java.io.IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException("Failed to read forecast JSON file: " + e.getMessage(), e);
         }
     }
     

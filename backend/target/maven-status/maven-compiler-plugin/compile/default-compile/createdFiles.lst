@@ -1,0 +1,15 @@
+com/inventory/service/ForecastService$1.class
+com/inventory/repository/ProductRepository.class
+com/inventory/InventoryDashboardApplication.class
+com/inventory/controller/ForecastController.class
+com/inventory/controller/ProductController.class
+com/inventory/model/Category.class
+com/inventory/model/Product.class
+com/inventory/dto/InventoryUpdateDTO.class
+com/inventory/dto/CategoryDTO.class
+com/inventory/service/ProductService.class
+com/inventory/service/ForecastService.class
+com/inventory/repository/CategoryRepository.class
+com/inventory/InventoryDashboardApplication$1.class
+com/inventory/dto/ProductDTO.class
+com/inventory/service/ProductDataLoader.class
