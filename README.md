@@ -8,7 +8,7 @@ A full-stack admin dashboard for warehouse managers to monitor stock levels, pre
 - **Backend**: Spring Boot (Java, REST API)
 - **Database**: PostgreSQL
 - **Real-time Signals**: Redis
-- **ML Forecasting**: Python (Prophet/ARIMA-ready)
+- **ML Forecasting**: Python
 
 ## 🚀 Quick Start
 
@@ -51,7 +51,7 @@ python cart_simulator.py
 - **Category Analytics**: Drill-down into specific product categories
 - **Trend Analysis**: Top/bottom performing products and categories
 - **ML Forecasting**: AI-powered demand prediction and recommendations
-- **Smart Recommendations**: RESTOCK, DISCOUNT, DEPRECATE, NO ACTION
+- **Smart Recommendations**: RESTOCK, DISCOUNT, NO ACTION
 
 ## 🔧 API Endpoints
 
